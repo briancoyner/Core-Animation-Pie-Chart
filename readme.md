@@ -1,5 +1,5 @@
-### Core Animation Pie Chart
+## Core Animation Pie Chart
 
-## Brian M. Coyner
+### Brian M. Coyner
 
-# A new implementation of my BTSPieChart implementation is coming soon. 
+#### A new implementation of my BTSPieChart implementation is coming soon. 
