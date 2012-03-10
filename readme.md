@@ -2,4 +2,4 @@
 
 ### Brian M. Coyner
 
-#### A new implementation of my BTSPieChart implementation is coming soon. 
+#### A new implementation of my BTSPieChart implementation is coming soon (Mid-March, 2012). 
