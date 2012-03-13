@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D28120A14494C8500D248AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D28120914494C8500D248AC /* UIKit.framework */; };
+		5D28120C14494C8500D248AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D28120B14494C8500D248AC /* Foundation.framework */; };
+		5D28120E14494C8500D248AC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D28120D14494C8500D248AC /* CoreGraphics.framework */; };
+		5D28121414494C8500D248AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D28121214494C8500D248AC /* InfoPlist.strings */; };
+		5D28121614494C8500D248AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28121514494C8500D248AC /* main.m */; };
+		5D28122E14494CC800D248AC /* BTSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28122714494CC800D248AC /* BTSAppDelegate.m */; };
+		5D28122F14494CC800D248AC /* BTSDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28122914494CC800D248AC /* BTSDemoViewController.m */; };
+		5D28123114494CC800D248AC /* BTSPieView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5D28122D14494CC800D248AC /* BTSPieView.mm */; };
+		5D28123314494CED00D248AC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D28123214494CED00D248AC /* MainStoryboard.storyboard */; };
+		5D28123514494D1700D248AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D28123414494D1700D248AC /* QuartzCore.framework */; };
+		5D28123B14494E2E00D248AC /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 5D28123A14494E2E00D248AC /* readme.md */; };
+		5D3E81AF14D8F42F0036FBD9 /* BTSPieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E81AE14D8F42F0036FBD9 /* BTSPieViewController.m */; };
+		5D599DF014DDC33D00C41E19 /* BTSPieLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D599DEF14DDC33D00C41E19 /* BTSPieLayer.m */; };
+		5D599DF314DDC3B200C41E19 /* BTSSliceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D599DF214DDC3B200C41E19 /* BTSSliceLayer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5D28120514494C8500D248AC /* BTSPieChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTSPieChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D28120914494C8500D248AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5D28120B14494C8500D248AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5D28120D14494C8500D248AC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5D28121114494C8500D248AC /* BTSPieChart-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BTSPieChart-Info.plist"; sourceTree = "<group>"; };
+		5D28121314494C8500D248AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5D28121514494C8500D248AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5D28121714494C8500D248AC /* BTSPieChart-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTSPieChart-Prefix.pch"; sourceTree = "<group>"; };
+		5D28122614494CC800D248AC /* BTSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSAppDelegate.h; sourceTree = "<group>"; };
+		5D28122714494CC800D248AC /* BTSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSAppDelegate.m; sourceTree = "<group>"; };
+		5D28122814494CC800D248AC /* BTSDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSDemoViewController.h; sourceTree = "<group>"; };
+		5D28122914494CC800D248AC /* BTSDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSDemoViewController.m; sourceTree = "<group>"; };
+		5D28122C14494CC800D248AC /* BTSPieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSPieView.h; sourceTree = "<group>"; };
+		5D28122D14494CC800D248AC /* BTSPieView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BTSPieView.mm; sourceTree = "<group>"; };
+		5D28123214494CED00D248AC /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		5D28123414494D1700D248AC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5D28123A14494E2E00D248AC /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.md; sourceTree = "<group>"; };
+		5D3E81AD14D8F42F0036FBD9 /* BTSPieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSPieViewController.h; sourceTree = "<group>"; };
+		5D3E81AE14D8F42F0036FBD9 /* BTSPieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSPieViewController.m; sourceTree = "<group>"; };
+		5D599DEE14DDC33D00C41E19 /* BTSPieLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSPieLayer.h; sourceTree = "<group>"; };
+		5D599DEF14DDC33D00C41E19 /* BTSPieLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSPieLayer.m; sourceTree = "<group>"; };
+		5D599DF114DDC3B200C41E19 /* BTSSliceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSSliceLayer.h; sourceTree = "<group>"; };
+		5D599DF214DDC3B200C41E19 /* BTSSliceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTSSliceLayer.m; sourceTree = "<group>"; };
+		5DA2CA1A14D8DC51006738C7 /* BTSPieViewValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTSPieViewValues.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D28120214494C8500D248AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D28123514494D1700D248AC /* QuartzCore.framework in Frameworks */,
+				5D28120A14494C8500D248AC /* UIKit.framework in Frameworks */,
+				5D28120C14494C8500D248AC /* Foundation.framework in Frameworks */,
+				5D28120E14494C8500D248AC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D2811FA14494C8500D248AC = {
+			isa = PBXGroup;
+			children = (
+				5D28120F14494C8500D248AC /* BTSPieChart */,
+				5D28120814494C8500D248AC /* Frameworks */,
+				5D28120614494C8500D248AC /* Products */,
+				5D28123A14494E2E00D248AC /* readme.md */,
+			);
+			sourceTree = "<group>";
+		};
+		5D28120614494C8500D248AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D28120514494C8500D248AC /* BTSPieChart.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D28120814494C8500D248AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D28123414494D1700D248AC /* QuartzCore.framework */,
+				5D28120914494C8500D248AC /* UIKit.framework */,
+				5D28120B14494C8500D248AC /* Foundation.framework */,
+				5D28120D14494C8500D248AC /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D28120F14494C8500D248AC /* BTSPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				5D599DFD14DDC8FD00C41E19 /* Demo App */,
+				5D599DFC14DDC8DF00C41E19 /* View and Layers */,
+				5D28121014494C8500D248AC /* Supporting Files */,
+			);
+			path = BTSPieChart;
+			sourceTree = "<group>";
+		};
+		5D28121014494C8500D248AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D28121114494C8500D248AC /* BTSPieChart-Info.plist */,
+				5D28121214494C8500D248AC /* InfoPlist.strings */,
+				5D28121514494C8500D248AC /* main.m */,
+				5D28121714494C8500D248AC /* BTSPieChart-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D599DFC14DDC8DF00C41E19 /* View and Layers */ = {
+			isa = PBXGroup;
+			children = (
+				5DA2CA1A14D8DC51006738C7 /* BTSPieViewValues.h */,
+				5D28122C14494CC800D248AC /* BTSPieView.h */,
+				5D28122D14494CC800D248AC /* BTSPieView.mm */,
+				5D599DEE14DDC33D00C41E19 /* BTSPieLayer.h */,
+				5D599DEF14DDC33D00C41E19 /* BTSPieLayer.m */,
+				5D599DF114DDC3B200C41E19 /* BTSSliceLayer.h */,
+				5D599DF214DDC3B200C41E19 /* BTSSliceLayer.m */,
+			);
+			name = "View and Layers";
+			sourceTree = "<group>";
+		};
+		5D599DFD14DDC8FD00C41E19 /* Demo App */ = {
+			isa = PBXGroup;
+			children = (
+				5D28123214494CED00D248AC /* MainStoryboard.storyboard */,
+				5D28122614494CC800D248AC /* BTSAppDelegate.h */,
+				5D28122714494CC800D248AC /* BTSAppDelegate.m */,
+				5D28122814494CC800D248AC /* BTSDemoViewController.h */,
+				5D28122914494CC800D248AC /* BTSDemoViewController.m */,
+				5D3E81AD14D8F42F0036FBD9 /* BTSPieViewController.h */,
+				5D3E81AE14D8F42F0036FBD9 /* BTSPieViewController.m */,
+			);
+			name = "Demo App";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D28120414494C8500D248AC /* BTSPieChart */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D28122314494C8500D248AC /* Build configuration list for PBXNativeTarget "BTSPieChart" */;
+			buildPhases = (
+				5D28120114494C8500D248AC /* Sources */,
+				5D28120214494C8500D248AC /* Frameworks */,
+				5D28120314494C8500D248AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BTSPieChart;
+			productName = BTSPieChart;
+			productReference = 5D28120514494C8500D248AC /* BTSPieChart.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D2811FC14494C8500D248AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Brian Coyner";
+			};
+			buildConfigurationList = 5D2811FF14494C8500D248AC /* Build configuration list for PBXProject "BTSPieChart" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5D2811FA14494C8500D248AC;
+			productRefGroup = 5D28120614494C8500D248AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D28120414494C8500D248AC /* BTSPieChart */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D28120314494C8500D248AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D28121414494C8500D248AC /* InfoPlist.strings in Resources */,
+				5D28123314494CED00D248AC /* MainStoryboard.storyboard in Resources */,
+				5D28123B14494E2E00D248AC /* readme.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D28120114494C8500D248AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D28121614494C8500D248AC /* main.m in Sources */,
+				5D28122E14494CC800D248AC /* BTSAppDelegate.m in Sources */,
+				5D28122F14494CC800D248AC /* BTSDemoViewController.m in Sources */,
+				5D28123114494CC800D248AC /* BTSPieView.mm in Sources */,
+				5D3E81AF14D8F42F0036FBD9 /* BTSPieViewController.m in Sources */,
+				5D599DF014DDC33D00C41E19 /* BTSPieLayer.m in Sources */,
+				5D599DF314DDC3B200C41E19 /* BTSSliceLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5D28121214494C8500D248AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D28121314494C8500D248AC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5D28122114494C8500D248AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		5D28122214494C8500D248AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5D28122414494C8500D248AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTSPieChart/BTSPieChart-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = "BTSPieChart/BTSPieChart-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5D28122514494C8500D248AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTSPieChart/BTSPieChart-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				INFOPLIST_FILE = "BTSPieChart/BTSPieChart-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D2811FF14494C8500D248AC /* Build configuration list for PBXProject "BTSPieChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D28122114494C8500D248AC /* Debug */,
+				5D28122214494C8500D248AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D28122314494C8500D248AC /* Build configuration list for PBXNativeTarget "BTSPieChart" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D28122414494C8500D248AC /* Debug */,
+				5D28122514494C8500D248AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5D2811FC14494C8500D248AC /* Project object */;
+}
