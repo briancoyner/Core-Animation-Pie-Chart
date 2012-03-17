@@ -1,8 +1,9 @@
 # Core Animation Pie Chart
 
-### Created by Brian Coyner
+### Created by Brian Coyner (2011,2012)
 
-This is a simple Pie Chart view built using Core Animation. The purpose of this app is to demonstrate a technique for animating arc (i.e. wedges) of a pie chart. 
+This is a simple Pie Chart view built using Core Animation. The purpose of this app is to demonstrate a technique
+for animating arc (i.e. wedges) of a pie chart.
 
 The pie chart contains the following features:
 

@@ -6,7 +6,6 @@
 
 #import "BTSAppDelegate.h"
 #import "BTSDemoViewController.h"
-#import "BTSPieView.h"
 
 @implementation BTSAppDelegate
 

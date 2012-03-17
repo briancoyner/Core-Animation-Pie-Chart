@@ -139,7 +139,7 @@
     _selectedSliceIndex = index;
     
     // update the selected slice UI components with the model values
-    BTSSliceData *sliceData = [_slices objectAtIndex:_selectedSliceIndex];
+    BTSSliceData *sliceData = [_slices objectAtIndex:(NSUInteger)_selectedSliceIndex];
     [_selectedSliceValueLabel setText:[NSString stringWithFormat:@"%d", [sliceData value]]];
     [_selectedSliceValueLabel setAlpha:1.0];    
     
@@ -177,11 +177,12 @@
     
     if ([_slices count] < sliceCount) { // "+" pressed
         
-        NSInteger insertIndex = _selectedSliceIndex + 1;
+        NSUInteger insertIndex = (NSUInteger)_selectedSliceIndex + 1;
 
         _nextColorIndex = _nextColorIndex + 1 < [_availableSliceColors count] ? _nextColorIndex + 1 : 0;
-        UIColor *sliceColor = [_availableSliceColors objectAtIndex:_nextColorIndex];
-        BTSSliceData *sliceData = [BTSSliceData sliceDataWithValue:10.0 color:sliceColor];
+        UIColor *sliceColor = [_availableSliceColors objectAtIndex:(NSUInteger)_nextColorIndex];
+
+        BTSSliceData *sliceData = [BTSSliceData sliceDataWithValue:10 color:sliceColor];
         [_slices insertObject:sliceData atIndex:insertIndex]; 
         
         [_pieView insertSliceAtIndex:insertIndex animate:shouldAnimate];
@@ -191,8 +192,8 @@
         // if there is a known selection.
         if (_selectedSliceIndex > -1) {
 
-            [_slices removeObjectAtIndex:_selectedSliceIndex];
-            [_pieView removeSliceAtIndex:_selectedSliceIndex animate:shouldAnimate];
+            [_slices removeObjectAtIndex:(NSUInteger)_selectedSliceIndex];
+            [_pieView removeSliceAtIndex:(NSUInteger)_selectedSliceIndex animate:shouldAnimate];
             
             // As mentioned in the class level notes, any time a wedge is deleted the view controller's
             // selection index is set to -1 (no selection). This keeps the user from pressing the "-" 
@@ -226,10 +227,10 @@
         
         BOOL shouldAnimate = [_toggleAnimationSwitch isOn];
         
-        BTSSliceData *sliceData = [_slices objectAtIndex:_selectedSliceIndex];
+        BTSSliceData *sliceData = [_slices objectAtIndex:(NSUInteger)_selectedSliceIndex];
         [sliceData setValue:value];
 
-        [_pieView reloadSliceAtIndex:_selectedSliceIndex animate:shouldAnimate];
+        [_pieView reloadSliceAtIndex:(NSUInteger)_selectedSliceIndex animate:shouldAnimate];
     }
 }
 

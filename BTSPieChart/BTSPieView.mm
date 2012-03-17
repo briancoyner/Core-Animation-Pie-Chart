@@ -239,15 +239,17 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         
         CGFloat startAngle = (CGFloat)-M_PI_2;
         CGFloat endAngle = startAngle;
-        
+
         for (NSUInteger currentIndex = 0; currentIndex < sliceCount; currentIndex++) {
-            
+
+            // Make no implicit transactions are creating (e.g. when adding the new slice)
             [CATransaction setDisableActions:YES];
-            
+
             endAngle += values.angles()[currentIndex];
             
             BTSSliceLayer *sliceLayer;
-            
+
+            // We are pointing to the index of the layer we want to insert.
             if (indexToInsert == currentIndex) {
                 
                 UIColor *color = [_delegate pieView:self colorForSliceAtIndex:currentIndex sliceCount:sliceCount];
@@ -292,6 +294,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
                     BTSUpdateLabelPosition(labelLayer, _center, _radius, initialLabelAngle, initialLabelAngle);
                 }
             } else {
+
                 // A layer already exists at this index
                 // - grab it from the array of sublayers
                 // - change the layer's delegate to the "default", which creates a CABasicAnimation suitable for animating an existing layer 
@@ -305,14 +308,10 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
                 NSString *label = [_labelFormatter stringFromNumber:[NSNumber numberWithDouble:value]]; 
                 [labelLayer setString:label];
             }
-            
-            if (sliceCount == 1) {
-                [sliceLayer setDelegate:nil];
-                BTSUpdateAllLayers(parentLayer, currentIndex, _center, _radius, startAngle, endAngle);
-            }
-            
+
             [CATransaction setDisableActions:NO];
-            
+
+            // This ends up calling the actionForLayer:forKey: method on each layer with a non-nil delegate
             [sliceLayer setSliceAngle:endAngle];
             [sliceLayer setDelegate:nil];
             

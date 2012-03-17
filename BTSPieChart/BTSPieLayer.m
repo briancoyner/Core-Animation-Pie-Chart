@@ -5,8 +5,6 @@
 
 #import "BTSPieLayer.h"
 
-#import "BTSSliceLayer.h"
-
 typedef enum {
     BTSPieLayerLines,
     BTSPieLayerSlices,

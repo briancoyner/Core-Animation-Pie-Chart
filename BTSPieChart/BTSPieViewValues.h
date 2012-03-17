@@ -12,21 +12,21 @@ public:
     typedef CGFloat(^FetchBlock)(NSUInteger index);
     
     BTSPieViewValues(NSUInteger sliceCount, FetchBlock fetchBlock) 
-    : _sum(0.0)
-    , _percentages(new double[sliceCount])
+    : _percentages(new double[sliceCount])
     , _values(new double[sliceCount])
     , _angles(new CGFLOAT_TYPE[sliceCount])
     {
+        double sum = 0.0;
         for (NSUInteger currentIndex = 0; currentIndex < sliceCount; currentIndex++)
         {
             _values[currentIndex] = fetchBlock(currentIndex);
-            _sum += _values[currentIndex];
+            sum += _values[currentIndex];
         }
         
         CGFloat twoPie = (CGFloat)M_PI * 2.0;
         for (int currentIndex = 0; currentIndex < sliceCount; currentIndex++)
         {
-            double percentage = _values[currentIndex] / _sum;
+            double percentage = _values[currentIndex] / sum;
             _percentages[currentIndex] = percentage;
             
             CGFloat angle = (CGFloat) (twoPie * percentage);
@@ -56,13 +56,7 @@ public:
         return _angles; 
     }
     
-    double sum() const
-    {
-        return _sum;
-    }
-    
 private:
-    double _sum;
     double* _percentages;
     double* _values;
     
