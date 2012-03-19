@@ -10,9 +10,10 @@ class BTSPieViewValues
 {
 public:
     typedef CGFloat(^FetchBlock)(NSUInteger index);
-    
-    BTSPieViewValues(NSUInteger sliceCount, FetchBlock fetchBlock) 
-    : _percentages(new double[sliceCount])
+
+    BTSPieViewValues(unsigned int sliceCount, FetchBlock fetchBlock)
+    : _sliceCount (sliceCount)
+    , _percentages(new double[sliceCount])
     , _values(new double[sliceCount])
     , _angles(new CGFLOAT_TYPE[sliceCount])
     {
@@ -55,10 +56,15 @@ public:
     { 
         return _angles; 
     }
+
+    unsigned int count() const
+    {
+        return _sliceCount;
+    }
     
 private:
+    unsigned int _sliceCount;
     double* _percentages;
     double* _values;
-    
     CGFloat* _angles;
 };
