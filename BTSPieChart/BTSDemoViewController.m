@@ -40,10 +40,6 @@
     __weak IBOutlet UILabel *_animationDurationLabel;
 }
 
-- (IBAction)updateSliceCount:(id)sender;
-- (IBAction)updateAnimationSpeed:(id)sender;
-- (IBAction)updateSelectedSliceValue:(id)sender;
-
 @end
 
 @implementation BTSDemoViewController
@@ -292,21 +288,20 @@
     if (CATransform3DIsIdentity([[[pieLayer sublayers] objectAtIndex:1] sublayerTransform])) {
         CATransform3D transform = CATransform3DIdentity;
         transform.m34 = 1.0f/-2500.0f;
-        transform = CATransform3DRotate(transform, (CGFloat)M_PI/4.0f, 0.0, 1.0, 0.0);
+        transform = CATransform3DRotate(transform, (CGFloat)M_PI_4, 0.0, 1.0, 0.0);
         [self updateSublayerTransform:transform zPosition:200];
     } else {
         [self updateSublayerTransform:CATransform3DIdentity zPosition:0];
     }
 }
 
-
 @end
 
 // Wraps a data value and color to make it easier to implement the data source + delegate callbacks. 
 @implementation BTSSliceData
 
-@synthesize value;
-@synthesize color;
+@synthesize value = _value;
+@synthesize color = _color;
 
 + (id)sliceDataWithValue:(int)value color:(UIColor *)color
 {

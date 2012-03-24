@@ -4,8 +4,7 @@
 
 #### Requirements
 
-- Xcode 4.3.1 (viz. private methods do not have to be declared in the header or class extension)
-
+- Xcode 4.3 
 
 This is a simple Pie Chart view built using Core Animation. The purpose of this app is to demonstrate a technique
 for animating arc (i.e. wedges) of a pie chart.

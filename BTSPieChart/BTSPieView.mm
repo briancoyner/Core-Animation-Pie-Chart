@@ -552,7 +552,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
 
         CGFloat startAngle = BTSLookupPreviousLayerAngle(sliceLayers, index, (CGFloat) -M_PI_2);
 
-        // NOTE: in this demo code, the touch handling does not take into affect any applied transformations (i.e. perspective)
+        // NOTE: in this demo code, the touch handling does not know about any applied transformations (i.e. perspective)
         if (CGPathContainsPoint(path, &CGAffineTransformIdentity, point, 0)) {
 
             if (_highlightSelection) {
