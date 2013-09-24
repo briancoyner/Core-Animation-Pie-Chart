@@ -10,6 +10,6 @@
 
 @interface BTSDemoViewController : UITableViewController
 
-@property (nonatomic, weak) BTSPieView *pieView;
+@property (nonatomic, weak, readwrite) BTSPieView *pieView;
 
 @end

@@ -6,6 +6,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class BTSPieView;
+
 @interface BTSPieViewController : UIViewController
+
+- (BTSPieView *)pieView;
 
 @end

@@ -5,6 +5,7 @@
 //
 
 #import "BTSPieView.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 #import "BTSPieViewValues.h"
@@ -15,16 +16,22 @@ static float const kBTSPieViewSelectionOffset = 20.0f;
 
 // Used as a CAAnimationDelegate when animating existing slices
 @interface BTSSliceLayerExistingLayerDelegate : NSObject
-@property(nonatomic, weak) id animationDelegate;
+
+@property (nonatomic, weak, readwrite) id animationDelegate;
+
 @end
 
 @interface BTSSliceLayerAddAtBeginningLayerDelegate : NSObject
-@property(nonatomic, weak) id animationDelegate;
+
+@property (nonatomic, weak, readwrite) id animationDelegate;
+
 @end
 
 @interface BTSSliceLayerAddInMiddleLayerDelegate : NSObject
-@property(nonatomic, weak) id animationDelegate;
-@property(nonatomic) CGFloat initialSliceAngle;
+
+@property (nonatomic, weak, readwrite) id animationDelegate;
+@property (nonatomic, assign, readwrite) CGFloat initialSliceAngle;
+
 @end
 
 @interface BTSPieView () {
@@ -134,7 +141,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     _displayLink = nil;
 }
 
-#pragma mark - Layout Hack 
+#pragma mark - Layout Hack
 
 - (void)layoutSubviews
 {
@@ -157,11 +164,11 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     [CATransaction setAnimationDuration:_animationDuration];
 }
 
-#pragma mark - Reload Pie View (No Animation)
+#pragma mark - Reload Pie View(No Animation)
 
 - (BTSSliceLayer *)insertSliceLayerAtIndex:(NSUInteger)index color:(UIColor *)color
 {
-    BTSSliceLayer *sliceLayer = [BTSSliceLayer layerWithColor:color.CGColor];
+    BTSSliceLayer *sliceLayer = [BTSSliceLayer layerWithColor:[color CGColor]];
 
     BTSPieLayer *pieLayer = (BTSPieLayer *) [self layer];
     [[pieLayer sliceLayers] insertSublayer:sliceLayer atIndex:index];
@@ -171,7 +178,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
 - (CATextLayer *)insertLabelLayerAtIndex:(NSUInteger)index value:(double)value
 {
     CATextLayer *labelLayer = [BTSPieView createLabelLayer];
-    [labelLayer setString:[_labelFormatter stringFromNumber:[NSNumber numberWithDouble:value]]];
+    [labelLayer setString:[_labelFormatter stringFromNumber:@(value)]];
 
     BTSPieLayer *pieLayer = (BTSPieLayer *) [self layer];
     CALayer *layer = [pieLayer labelLayers];
@@ -182,7 +189,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
 - (CAShapeLayer *)insertLineLayerAtIndex:(NSUInteger)index color:(UIColor *)color
 {
     CAShapeLayer *lineLayer = [CAShapeLayer layer];
-    [lineLayer setStrokeColor:color.CGColor];
+    [lineLayer setStrokeColor:[color CGColor]];
 
     BTSPieLayer *pieLayer = (BTSPieLayer *) [self layer];
     [[pieLayer lineLayers] insertSublayer:lineLayer atIndex:index];
@@ -275,15 +282,15 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     }
 }
 
-- (BTSSliceLayer *)insertSliceAtIndex:(NSUInteger)index values:(BTSPieViewValues*)values startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
+- (BTSSliceLayer *)insertSliceAtIndex:(NSUInteger)index values:(BTSPieViewValues *)values startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle
 {
     NSUInteger sliceCount = values->count();
     UIColor *color = [_delegate pieView:self colorForSliceAtIndex:index sliceCount:sliceCount];
-    
+
     BTSSliceLayer *sliceLayer = [self insertSliceLayerAtIndex:index color:color];
     id delegate = [self delegateForSliceAtIndex:index sliceCount:sliceCount];
     [sliceLayer setDelegate:delegate];
-    
+
     CGFloat initialLabelAngle = [self initialLabelAngleForSliceAtIndex:index sliceCount:sliceCount startAngle:startAngle endAngle:endAngle];
     CATextLayer *labelLayer = [self insertLabelLayerAtIndex:index value:values->percentages()[index]];
     BTSUpdateLabelPosition(labelLayer, _center, _radius, initialLabelAngle, initialLabelAngle);
@@ -299,14 +306,14 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     return sliceLayer;
 }
 
-- (BTSSliceLayer *)updateSliceAtIndex:(NSUInteger)currentIndex values:(BTSPieViewValues*)values
+- (BTSSliceLayer *)updateSliceAtIndex:(NSUInteger)currentIndex values:(BTSPieViewValues *)values
 {
-    BTSPieLayer *pieLayer = (BTSPieLayer *)[self layer];
-    
+    BTSPieLayer *pieLayer = (BTSPieLayer *) [self layer];
+
     NSArray *sliceLayers = [[pieLayer sliceLayers] sublayers];
     BTSSliceLayer *sliceLayer = (BTSSliceLayer *) [sliceLayers objectAtIndex:currentIndex];
     [sliceLayer setDelegate:_existingLayerDelegate];
-    
+
     NSArray *labelLayers = [[pieLayer labelLayers] sublayers];
     CATextLayer *labelLayer = [labelLayers objectAtIndex:currentIndex];
     double value = values->percentages()[currentIndex];
@@ -333,15 +340,15 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
 {
     // The inserted layer animates differently depending on where the new layer is inserted.
     CGFloat initialLabelAngle;
-    
+
     if (currentIndex == 0) {
         initialLabelAngle = startAngle;
     } else if (currentIndex + 1 == sliceCount) {
         initialLabelAngle = endAngle;
     } else {
         BTSPieLayer *pieLayer = (BTSPieLayer *) [self layer];
-        NSArray *pieLayers = [[pieLayer sliceLayers] sublayers];        
-        initialLabelAngle = BTSLookupPreviousLayerAngle(pieLayers, currentIndex, (CGFloat)-M_PI_2);
+        NSArray *pieLayers = [[pieLayer sliceLayers] sublayers];
+        initialLabelAngle = BTSLookupPreviousLayerAngle(pieLayers, currentIndex, (CGFloat) -M_PI_2);
     }
     return initialLabelAngle;
 }
@@ -451,7 +458,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         // For simplicity, the start angle is always zero... no reason it can't be any valid angle in radians.
         CGFloat endAngle = (CGFloat) -M_PI_2;
 
-        // We are updating existing layer values (viz. not adding, or removing). We simply iterate each slice layer and 
+        // We are updating existing layer values (viz. not adding, or removing). We simply iterate each slice layer and
         // adjust the start and end angles.
         for (NSUInteger sliceIndex = 0; sliceIndex < sliceCount; sliceIndex++) {
 
@@ -512,15 +519,15 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     [CATransaction setDisableActions:NO];
 }
 
-- (void)animationDidStart:(CAAnimation *)anim
+- (void)animationDidStart:(CAAnimation *)animation
 {
     [_displayLink setPaused:NO];
-    [_animations addObject:anim];
+    [_animations addObject:animation];
 }
 
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)animationCompleted
+- (void)animationDidStop:(CAAnimation *)animation finished:(BOOL)animationCompleted
 {
-    [_animations removeObject:anim];
+    [_animations removeObject:animation];
 
     if ([_animations count] == 0) {
         [_displayLink setPaused:YES];
@@ -556,7 +563,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         if (CGPathContainsPoint(path, &CGAffineTransformIdentity, point, 0)) {
 
             if (_highlightSelection) {
-                [sliceLayer setStrokeColor:[UIColor whiteColor].CGColor];
+                [sliceLayer setStrokeColor:[[UIColor whiteColor] CGColor]];
                 [sliceLayer setLineWidth:2.0];
                 [sliceLayer setZPosition:1];
             } else {
@@ -629,7 +636,10 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     [textLayer setAnchorPoint:CGPointMake(0.5, 0.5)];
     [textLayer setAlignmentMode:kCAAlignmentCenter];
 
-    CGSize size = [@"100.00%" sizeWithFont:[UIFont boldSystemFontOfSize:17.0]];
+    NSDictionary *attributes = @{
+        NSFontAttributeName : [UIFont systemFontOfSize:17.0]
+    };
+    CGSize size = [@"100.00%" sizeWithAttributes:attributes];
     [textLayer setBounds:CGRectMake(0.0, 0.0, size.width, size.height)];
     return textLayer;
 }
@@ -660,6 +670,7 @@ void BTSUpdateLabelPosition(CALayer *labelLayer, CGPoint center, CGFloat radius,
 }
 
 void BTSUpdateLayers(NSArray *sliceLayers, NSArray *labelLayers, NSArray *lineLayers, NSUInteger layerIndex, CGPoint center, CGFloat radius, CGFloat startAngle, CGFloat endAngle) {
+
     {
         CAShapeLayer *lineLayer = [lineLayers objectAtIndex:layerIndex];
 
@@ -767,5 +778,6 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         return nil;
     }
 }
+
 @end
 

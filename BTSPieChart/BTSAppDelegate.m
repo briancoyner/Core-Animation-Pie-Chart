@@ -5,7 +5,9 @@
 //
 
 #import "BTSAppDelegate.h"
+
 #import "BTSDemoViewController.h"
+#import "BTSPieViewController.h"
 
 @implementation BTSAppDelegate
 
@@ -13,16 +15,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)[[self window] rootViewController];
-    
-    UIViewController *pieViewController = [[splitViewController viewControllers] lastObject];
-    BTSPieView *pieView = (BTSPieView *)[pieViewController view];
-    
+    UISplitViewController *splitViewController = (UISplitViewController *) [[self window] rootViewController];
+
+    BTSPieViewController *pieViewController = [[splitViewController viewControllers] lastObject];
+    BTSPieView *pieView = [pieViewController pieView];
+
     UINavigationController *navigationController = [[splitViewController viewControllers] objectAtIndex:0];
-    BTSDemoViewController *demoViewController = (BTSDemoViewController *)[navigationController topViewController];
+    BTSDemoViewController *demoViewController = (BTSDemoViewController *) [navigationController topViewController];
     [demoViewController setPieView:pieView];
-    
+
     return YES;
 }
 

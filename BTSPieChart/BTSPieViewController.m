@@ -8,9 +8,9 @@
 
 @implementation BTSPieViewController
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BTSPieView *)pieView
 {
-	return YES;
+    return [[[self view] subviews] lastObject];
 }
 
 @end

@@ -10,10 +10,12 @@
 // 
 // This layer represents a single slice.
 
-extern NSString * const kBTSSliceLayerAngle;
+extern NSString *const kBTSSliceLayerAngle;
 
-@interface BTSSliceLayer : CAShapeLayer 
-@property (nonatomic, readwrite) CGFloat sliceAngle;
+@interface BTSSliceLayer : CAShapeLayer
+
+@property (nonatomic, assign, readwrite) CGFloat sliceAngle;
 
 + (id)layerWithColor:(CGColorRef)fillColor;
+
 @end

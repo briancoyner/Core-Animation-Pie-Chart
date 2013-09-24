@@ -21,11 +21,10 @@ typedef enum {
         [self addSublayer:[CALayer layer]]; // BTSPieLayerLines
         [self addSublayer:[CALayer layer]]; // BTSPieLayerSlices
         [self addSublayer:[CALayer layer]]; // BTSPieLayerLabels
-        
+
         [[self sublayers] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [obj setContentsScale:[[UIScreen mainScreen] scale]];
         }];
-        
     }
     return self;
 }
@@ -53,14 +52,14 @@ typedef enum {
             [obj removeFromSuperlayer];
         }];
     }
-    
+
     {
         NSArray *layers = [NSArray arrayWithArray:[[self sliceLayers] sublayers]];
         [layers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             [obj removeFromSuperlayer];
         }];
     }
-    
+
     {
         NSArray *layers = [NSArray arrayWithArray:[[self labelLayers] sublayers]];
         [layers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
