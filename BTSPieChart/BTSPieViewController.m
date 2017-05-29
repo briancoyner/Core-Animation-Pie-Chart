@@ -10,7 +10,7 @@
 
 - (BTSPieView *)pieView
 {
-    return [[[self view] subviews] lastObject];
+    return (BTSPieView *)[[[self view] subviews] lastObject];
 }
 
 @end
