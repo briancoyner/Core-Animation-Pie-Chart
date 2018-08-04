@@ -16,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UISplitViewController *splitViewController = (UISplitViewController *) [[self window] rootViewController];
-
+    
     BTSPieViewController *pieViewController = [[splitViewController viewControllers] lastObject];
     BTSPieView *pieView = [pieViewController pieView];
 
@@ -24,6 +24,8 @@
     BTSDemoViewController *demoViewController = (BTSDemoViewController *) [navigationController topViewController];
     [demoViewController setPieView:pieView];
 
+    [splitViewController setPreferredDisplayMode:UISplitViewControllerDisplayModeAllVisible];
+    
     return YES;
 }
 

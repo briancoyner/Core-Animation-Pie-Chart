@@ -208,7 +208,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         NSUInteger sliceCount = [_dataSource numberOfSlicesInPieView:self];
 
         BTSPieViewValues values((unsigned int)sliceCount, ^(NSUInteger index) {
-            return [_dataSource pieView:self valueForSliceAtIndex:(unsigned)index];
+            return [self->_dataSource pieView:self valueForSliceAtIndex:(unsigned)index];
         });
 
         CGFloat startAngle = (CGFloat)-M_PI_2;
@@ -247,7 +247,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
 
         NSUInteger sliceCount = [_dataSource numberOfSlicesInPieView:self];
         BTSPieViewValues values((unsigned int)sliceCount, ^(NSUInteger sliceIndex) {
-            return [_dataSource pieView:self valueForSliceAtIndex:sliceIndex];
+            return [self->_dataSource pieView:self valueForSliceAtIndex:sliceIndex];
         });
 
         CGFloat startAngle = (CGFloat)-M_PI_2;
@@ -377,12 +377,12 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
 
         NSUInteger current = [_layersToRemove count];
         [CATransaction setCompletionBlock:^{
-            if (current == [_layersToRemove count]) {
-                [_layersToRemove enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
+            if (current == [self->_layersToRemove count]) {
+                [self->_layersToRemove enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
                     [obj removeFromSuperlayer];
                 }];
 
-                [_layersToRemove removeAllObjects];
+                [self->_layersToRemove removeAllObjects];
             }
         }];
 
@@ -395,7 +395,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
             [CATransaction setDisableActions:NO];
 
             BTSPieViewValues values((unsigned int)sliceCount, ^(NSUInteger index) {
-                return [_dataSource pieView:self valueForSliceAtIndex:index];
+                return [self->_dataSource pieView:self valueForSliceAtIndex:index];
             });
 
             CGFloat startAngle = (CGFloat)-M_PI_2;
@@ -450,7 +450,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         NSUInteger sliceCount = [_dataSource numberOfSlicesInPieView:self];
 
         BTSPieViewValues values((unsigned int)sliceCount, ^(NSUInteger sliceIndex) {
-            return [_dataSource pieView:self valueForSliceAtIndex:sliceIndex];
+            return [self->_dataSource pieView:self valueForSliceAtIndex:sliceIndex];
         });
 
         // For simplicity, the start angle is always zero... no reason it can't be any valid angle in radians.
@@ -487,7 +487,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
     [sliceLayers enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop) {
         CGFloat startAngle = BTSLookupPreviousLayerAngle(sliceLayers, index, (CGFloat)-M_PI_2);
         CGFloat endAngle = (CGFloat)[[obj valueForKey:kBTSSliceLayerAngle] doubleValue];
-        BTSUpdateLayers(sliceLayers, labelLayers, lineLayers, index, _center, _radius, startAngle, endAngle);
+        BTSUpdateLayers(sliceLayers, labelLayers, lineLayers, index, self->_center, self->_radius, startAngle, endAngle);
     }];
 }
 
@@ -560,7 +560,7 @@ CGFloat BTSLookupPreviousLayerAngle(NSArray *pieLayers, NSUInteger currentPieLay
         // NOTE: in this demo code, the touch handling does not know about any applied transformations (i.e. perspective)
         if (CGPathContainsPoint(path, &CGAffineTransformIdentity, point, 0)) {
 
-            if (_highlightSelection) {
+            if (self->_highlightSelection) {
                 [sliceLayer setStrokeColor:[[UIColor whiteColor] CGColor]];
                 [sliceLayer setLineWidth:2.0];
                 [sliceLayer setZPosition:1];
