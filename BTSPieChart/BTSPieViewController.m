@@ -5,6 +5,7 @@
 //
 
 #import "BTSPieViewController.h"
+#import "BTSPieView.h"
 
 @implementation BTSPieViewController
 
